@@ -1,0 +1,16 @@
+{
+  "name": "202012-otuskotlin-marketplace-ok-multiplatform",
+  "version": "0.0.1",
+  "main": "kotlin/202012-otuskotlin-marketplace-ok-multiplatform.js",
+  "devDependencies": {
+    "dukat": "0.5.8-rc.3"
+  },
+  "dependencies": {
+    "kotlin-test-js-runner": "file:C:\\kotlin\\202012-otuskotlin-marketplace\\build\\js\\packages_imported\\kotlin-test-js-runner\\1.4.30",
+    "kotlin-test": "file:C:\\kotlin\\202012-otuskotlin-marketplace\\build\\js\\packages_imported\\kotlin-test\\1.4.30",
+    "kotlin": "file:C:\\kotlin\\202012-otuskotlin-marketplace\\build\\js\\packages_imported\\kotlin\\1.4.30"
+  },
+  "peerDependencies": {},
+  "optionalDependencies": {},
+  "bundledDependencies": []
+}
