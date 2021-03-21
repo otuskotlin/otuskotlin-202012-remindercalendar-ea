@@ -1,5 +1,6 @@
 plugins {
     kotlin("multiplatform")
+    kotlin("plugin.serialization")
 }
 
 group = rootProject.group
@@ -15,20 +16,25 @@ kotlin {
     *  https://kotlinlang.org/docs/reference/building-mpp-with-gradle.html#setting-up-targets */
 
     js {
-        browser {  }
-        nodejs {  }
+        browser {
+            testTask {
+                useKarma {
+                    useChromeHeadless()
+                }
+            }
+            binaries.executable()
+        }
     }
+
     jvm {
         withJava()
-    }
-    linuxX64 {
-
     }
 
     sourceSets {
         val commonMain by getting {
             dependencies {
                 implementation(kotlin("stdlib-common"))
+                api("org.jetbrains.kotlinx:kotlinx-serialization-json:1.0.1")
             }
         }
         val commonTest by getting {
@@ -39,11 +45,12 @@ kotlin {
         }
         val jsMain by getting {
             dependencies {
-                implementation(kotlin("stdlib-js"))
+                implementation(kotlin("stdlib"))
             }
         }
         val jsTest by getting {
             dependencies {
+                implementation(kotlin("test"))
                 implementation(kotlin("test-js"))
             }
         }
@@ -54,17 +61,8 @@ kotlin {
         }
         val jvmTest by getting {
             dependencies {
-                implementation(kotlin("test-junit"))
-            }
-        }
-        val linuxX64Main by getting {
-            dependencies {
-                implementation(kotlin("stdlib"))
-            }
-        }
-        val linuxX64Test by getting {
-            dependencies {
                 implementation(kotlin("test"))
+                implementation(kotlin("test-junit"))
             }
         }
     }
