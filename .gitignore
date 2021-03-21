@@ -27,3 +27,5 @@ hs_err_pid*
 /ok-backend/build/
 /ok-helloworld/build/
 /ok-multiplatform/build/
+/ok-transport-main-mp/build/
+/ok-backend-mappers-mp/build/
